@@ -1,0 +1,30 @@
+{% extends "cinema_manager/base.html" %}{% block title %} Showing Add Form {% endblock %}
+
+{% block content %}
+
+<form action = '/showingAdd' method = 'POST'>
+    {% csrf_token %}
+    <br>
+    Showing Details
+    <input class = 'form-control' type = 'date' name = 'date'/>
+    <br>
+    <input class = 'form-control' type = 'time' name = 'time' />
+    <br>
+    <select class = 'form-control' id = 'fName' name = 'fName'>
+        <option value = '' selected disabled>Please Select</option>
+        {% for row in title %} 
+          <option value = '{{row.0}}'> {{row.0}} </option>
+        {% endfor %}
+    </select>
+    <br>
+    <select class = 'form-control' id = 'sId' name = 'sId'>
+        <option value = '' selected disabled>Please Select</option>
+        {% for row in screen %} 
+          <option value = '{{row.0}}'> {{row.0}} </option>
+        {% endfor %}
+    </select>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

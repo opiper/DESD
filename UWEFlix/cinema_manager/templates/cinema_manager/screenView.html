@@ -1,0 +1,33 @@
+{% extends "cinema_manager/base.html" %}
+{% block title %}
+Screen Edit
+{% endblock %}
+{% block content %}
+
+<div>
+    <br>
+</div>
+<a class="btn btn-primary" href="{% url 'screenAddForm' %}" role="button">Add a Screen</a>
+
+<form action = '/deleteScreen' method = 'POST'>
+    {% csrf_token %}
+    <div class = 'table-responsive container-sm'>
+        <br>
+        <table class="table table-hover table-sm" border= 2>
+            <tr>
+                <th> ID </th>
+                <th> Capacity </th>
+                <th> <br> </th>
+            </tr>
+            {% for row in results %}
+            <tr>
+                <td><br> {{row.id}} </td>
+                <td><br> {{row.capacity}} </td>
+                <td><br> <button type="submit" class="btn btn-primary">Delete</button> </td>
+                <input type = 'hidden' name = 'sid' id = 'sid' value = '{{row.id}}' />
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+{% endblock %}

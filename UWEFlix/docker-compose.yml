@@ -1,0 +1,24 @@
+services:
+  django-container:
+    build: .
+    entrypoint: ["./django-container-entrypoint.sh"]
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    depends_on:
+      - mysql-container
+
+  mysql-container:
+    image: mysql:8.0-debian
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:

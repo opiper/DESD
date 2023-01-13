@@ -1,0 +1,40 @@
+{% extends "cinema_manager/base.html" %}
+{% block title %}
+Showing Edit
+{% endblock %}
+{% block content %}
+
+<div>
+    <br>
+    <a class="btn btn-primary" href="{% url 'showingAddForm' %}" role="button">Add a Showing</a>
+</div>
+
+<form action = '/deleteShowing' method = 'POST'>
+    {% csrf_token %}
+    <div class = 'table-responsive container-sm'>
+        <br>
+        <table class="table table-hover table-sm" border= 2>
+            <tr>
+                <th> ID </th>
+                <th> Date </th>
+                <th> Time </th>
+                <th> Film </th>
+                <th> Screen </th>
+                <th> <br> </th>
+            </tr>
+            {% for row in results %}
+            <tr>
+                <td><br> {{row.id}} </td>
+                <td><br> {{row.date}} </td>
+                <td><br> {{row.time}} </td>
+                <td><br> {{row.fName}} </td>
+                <td><br> {{row.sId}} </td>
+                <td><br> <button type="submit" class="btn btn-primary">Delete</button> </td>
+                <input type = 'hidden' name = 'sid' id = 'sid' value = '{{row.id}}' />
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "cinema_manager/base.html" %}{% block title %} Film View {% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+<a class="btn btn-primary" href="{% url 'filmAddForm' %}" role="button">Add a Film</a>
+
+<form action = '/deleteFilm' method = 'POST'>
+    {% csrf_token %}
+    <div class = 'table-responsive container-sm'>
+        <br>
+        <table class="table table-hover table-sm" border= 2>
+            <tr>
+                <th> ID </th>
+                <th> Title </th>
+                <th> Rating </th>
+                <th> Duration </th>
+                <th> Description </th>
+                <th> <br> </th>
+            </tr>
+            {% for row in results %}
+            <tr>
+                <td><br> {{row.id}} </td>
+                <td><br> {{row.title}} </td>
+                <td><br> {{row.rating}} </td>
+                <td><br> {{row.duration}} </td>
+                <td><br> {{row.description}} </td>
+                <td><br> <button type="submit" class="btn btn-primary">Delete</button> </td>
+                <input type = 'hidden' name = 'fid' id = 'fid' value = '{{row.id}}' />
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+
+{% endblock %}

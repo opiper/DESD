@@ -1,0 +1,32 @@
+{% extends "cinema_manager/base.html" %}{% block title %} View Clubs {% endblock %}
+
+
+{% block content %}
+<form action = '/deleteClub' method = 'POST'>
+    {% csrf_token %}
+    <div class = 'table-responsive'>
+        <br>
+        <table class="table table-hover container-sm" border= 2>
+            <tr>
+                <th> ID </th>
+                <th> Club Name </th>
+                <th> Address </th>
+                <th> Phone Number </th>
+                <th> Rep ID </th>
+                <th> <br> </th>
+            </tr>
+            {% for row in results %}
+            <tr>
+                <td><br> {{row.id}} </td>
+                <td><br> {{row.name}} </td>
+                <td><br> {{row.address}} </td>
+                <td><br> {{row.phone}} </td>
+                <td><br> {{row.repId}} </td>
+                <td><br> <button type="submit" class="btn btn-primary">Delete</button> </td>
+                <input type = 'hidden' name = 'cid' id = 'cid' value = '{{row.id}}' />
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "cinema_manager/base.html" %}{% block title %} Sign Up {% endblock %}
+
+{% block content %}
+
+<form action="/signUp" method = 'POST'>
+    {% csrf_token %}
+    <div class="mb-3">
+        <br>
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password">
+    </div>
+    <div class="mb-3">
+        <label for="fName" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="fName">
+    </div>
+    <div class="mb-3">
+        <label for="lName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lName">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

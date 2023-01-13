@@ -1,0 +1,25 @@
+{% extends "cinema_manager/base.html" %}{% block title %}Registration{% endblock %}
+
+{% block content %}
+
+<form action = '/clubCreate' method = 'POST'>
+    {% csrf_token %}
+    <br>
+    Club Details
+    <input class = 'form-control' type = 'text' placeholder = 'Club Name' name = 'clubName' />
+    <br>
+    <input class = 'form-control' type = 'text' placeholder = 'Address' name = 'clubAdd' />
+    <br>
+    <input class = 'form-control' type = 'text' placeholder = 'Phone Number' name = 'clubPhone' />
+    <br>
+    Club Rep Details
+    <input class = 'form-control' type = 'text' placeholder = 'First Name' name = 'repFirstName' />
+    <br>
+    <input class = 'form-control' type = 'text' placeholder = 'Last Name' name = 'repLastName' />
+    <br>
+    <input class = 'form-control' type = 'date' placeholder = 'DoB' name = 'repDob' />
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

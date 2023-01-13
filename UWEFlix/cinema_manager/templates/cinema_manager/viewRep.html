@@ -1,0 +1,30 @@
+{% extends "cinema_manager/base.html" %}{% block title %} View Reps {% endblock %}
+
+
+{% block content %}
+
+<div class = 'table-responsive'>
+    <br>
+    <table class="table table-hover container-sm" border= 2>
+        <tr>
+            <th> ID </th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Date of Birth </th>
+            <th> User ID </th>
+            <th> Password </th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td><br> {{row.id}} </td>
+            <td><br> {{row.fName}} </td>
+            <td><br> {{row.lName}} </td>
+            <td><br> {{row.dob}} </td>
+            <td><br> {{row.userId}} </td>
+            <td><br> {{row.password}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

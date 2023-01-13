@@ -1,0 +1,31 @@
+{% extends "cinema_manager/base.html" %}{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div>
+    <br>
+    <p>Current Showings</p>
+</div>
+
+<div class = 'table-responsive container-sm'>
+    <table class="table table-hover table-sm" border= 2>
+        <tr>
+            <th> ID </th>
+            <th> Date </th>
+            <th> Time </th>
+            <th> Film </th>
+            <th> Screen </th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td><br> {{row.id}} </td>
+            <td><br> {{row.date}} </td>
+            <td><br> {{row.time}} </td>
+            <td><br> {{row.fName}} </td>
+            <td><br> {{row.sId}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

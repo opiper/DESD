@@ -1,0 +1,21 @@
+{% extends "cinema_manager/base.html" %}{% block title %} Film Add {% endblock %}
+
+{% block content %}
+
+<form action = '/filmAdd' method = 'POST'>
+    {% csrf_token %}
+    <br>
+    Club Details
+    <input class = 'form-control' type = 'text' placeholder = 'Film title' name = 'title' />
+    <br>
+    <input class = 'form-control' type = 'text' placeholder = 'PG' name = 'rating' />
+    <br>
+    <input class = 'form-control' type = 'text' placeholder = '1h 30m' name = 'duration' />
+    <br>
+    Club Rep Details
+    <input class = 'form-control' type = 'text' placeholder = 'Description' name = 'description' />
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
